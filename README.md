@@ -143,16 +143,6 @@ L1_L3S tidak mengatur router-id manual (dipilih otomatis).
 - Remote access hanya **SSH v2** (`transport input ssh`, login lokal, domain `u-bank.local`) di router.
 - `service password-encryption` aktif dan banner *Authorized SSH access only*.
 
-## Catatan / Perlu Dicek
-
-Hal-hal berikut terlihat di file dan sebaiknya diverifikasi:
-
-1. **Kabel serial L3 tampak tertukar**: L3 Se0/3/1 (`.21`) terkabel ke L1 Se0/3/1 (`.5`), dan L3 Se0/3/0 (`.6`) terkabel ke L4 Se0/3/1 (`.22`). Subnet kedua ujung tidak cocok, jadi kedua link ini tidak akan membentuk adjacency OSPF.
-2. **IP kembar di link silang**: `10.10.10.41` dipakai L1_Router Gi0/2, L1_L3S Gi1/0/2, dan L2_L3S Gi1/0/2. Di sisi L3/L4, `.45` dipakai L4_Router dan L3_L3S, dan `.46` dipakai L3_Router dan L4_L3S. Tiap link seharusnya punya satu IP per ujung.
-3. **SVI identik di dua multilayer switch** (L1_L3S dan L2_L3S, L3_L3S dan L4_L3S) tanpa HSRP/VRRP, sehingga gateway yang sama aktif di dua perangkat.
-4. **Mask server `/24`** (255.255.255.0) padahal VLAN Server `/26`.
-5. **DNS di pool DHCP masih `0.0.0.0`**, jadi klien tidak menerima DNS server.
-6. Nama VLAN 40 di `L2_SMarketing` masih default (`VLAN0040`), berbeda dengan nama di multilayer switch (`Marketing`).
 
 ## Cara Menggunakan
 
