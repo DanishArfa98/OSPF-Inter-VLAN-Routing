@@ -2,7 +2,7 @@
 
 Simulasi jaringan perusahaan (domain `u-bank.local`) dengan **4 router**, **4 multilayer switch**, **12 VLAN** untuk 12 departemen, dan **server DHCP + Web**. Routing memakai **OSPF single area (area 0)**, dan akses antar-VLAN dilakukan di multilayer switch.
 
-- File proyek: `perjar 21 April .pkt`
+- File proyek: `OSPF & Inter-VLAN Routing .pkt`
 - Versi Packet Tracer: 8.2.2
 
 ## Topologi
